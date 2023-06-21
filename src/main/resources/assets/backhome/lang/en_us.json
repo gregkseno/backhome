@@ -1,3 +1,7 @@
 {
-    "item.backhome.town_portal_scroll": "Town Portal Scroll"
+    "item.minecraft.potion.effect.teleport_potion": "Teleport Potion",
+    "item.minecraft.splash_potion.effect.teleport_potion": "Splash Teleport Potion",
+    "item.minecraft.lingering_potion.effect.teleport_potion": "Lingering Teleport Potion",
+
+    "effect.backhome.teleport_effect": "Teleportation"
 }
