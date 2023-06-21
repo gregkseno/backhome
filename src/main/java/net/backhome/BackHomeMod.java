@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ExampleMod implements ModInitializer {
+public class BackHomeMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
     public static final Logger LOGGER = LoggerFactory.getLogger("backhome");
 
@@ -24,4 +24,11 @@ public class ExampleMod implements ModInitializer {
 		Registry.register(Registries.ITEM, new Identifier("backhome", "town_portal_scroll"), TOWN_PORTAL_SCROLL);
 		LOGGER.info("Mod initialized, new item added :)");
 	}
+
+	    public class CustomItem extends Item {
+     
+        public CustomItem(Settings settings) {
+            super(settings);
+        }
+    }
 }
