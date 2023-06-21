@@ -3,7 +3,6 @@ package net.backhome;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.backhome.TownPortalScroll;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -24,7 +23,7 @@ public class BackHomeMod implements ModInitializer {
 		// Register new item Town Prtal Scroll
 		Registry.register(Registries.ITEM, new Identifier("backhome", "town_portal_scroll"), TOWN_PORTAL_SCROLL);
 
-		//Add Town Prtal Scroll to ItemGroups.TOOLS
+		//Add Town Portal Scroll to ItemGroups.TOOLS
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
     	content.add(TOWN_PORTAL_SCROLL);
     	});
