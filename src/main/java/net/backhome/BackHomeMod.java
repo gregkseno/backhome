@@ -2,8 +2,9 @@ package net.backhome;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-
-import net.minecraft.item.Item;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.backhome.TownPortalScroll;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -15,20 +16,20 @@ public class BackHomeMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
     public static final Logger LOGGER = LoggerFactory.getLogger("backhome");
 
-
-	public static final Item TOWN_PORTAL_SCROLL = new Item(new FabricItemSettings());
+	// Create object Town Prtal Scroll
+	public static final TownPortalScroll TOWN_PORTAL_SCROLL = new TownPortalScroll(new FabricItemSettings());
 
 	@Override
 	public void onInitialize() {
-	
+		// Register new item Town Prtal Scroll
 		Registry.register(Registries.ITEM, new Identifier("backhome", "town_portal_scroll"), TOWN_PORTAL_SCROLL);
+
+		//Add Town Prtal Scroll to ItemGroups.TOOLS
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
+    	content.add(TOWN_PORTAL_SCROLL);
+    	});
+
 		LOGGER.info("Mod initialized, new item added :)");
 	}
 
-	    public class CustomItem extends Item {
-     
-        public CustomItem(Settings settings) {
-            super(settings);
-        }
-    }
 }
