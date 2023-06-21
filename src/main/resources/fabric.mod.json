@@ -3,13 +3,13 @@
 	"id": "backhome",
 	"version": "${version}",
 	"name": "BackHome",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Makes your homecoming faster with new item ⚡",
 	"authors": [
-		"Me!"
+		"Ksenofontov Gregory a.k.a gregtan"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "TODO",
+		"sources": "TODO"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/backhome/icon.png",
