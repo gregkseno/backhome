@@ -2,6 +2,9 @@
     "item.minecraft.potion.effect.teleport_potion": "Teleport Potion",
     "item.minecraft.splash_potion.effect.teleport_potion": "Splash Teleport Potion",
     "item.minecraft.lingering_potion.effect.teleport_potion": "Lingering Teleport Potion",
+    "item.minecraft.potion.effect.strong_teleport_potion": "Strong Teleport Potion",
+    "item.minecraft.splash_potion.effect.strong_teleport_potion": "Splash Strong Teleport Potion",
+    "item.minecraft.lingering_potion.effect.strong_teleport_potion": "Lingering Strong Teleport Potion",
 
     "effect.backhome.teleport_effect": "Teleportation"
 }
