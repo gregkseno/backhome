@@ -3,7 +3,13 @@
 	"package": "net.backhome.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"BackHomeMixin"
+
+	],
+	"client":[
+
+	],
+	"server":[
+		
 	],
 	"injectors": {
 		"defaultRequire": 1
