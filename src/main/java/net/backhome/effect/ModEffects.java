@@ -1,10 +1,7 @@
 package net.backhome.effect;
-
 import net.backhome.BackHomeMod;
-import net.backhome.TeleportPotion;
+
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
