@@ -22,6 +22,8 @@ public class BackHomeMod implements ModInitializer {
     	// });
 		ModEffects.registerEffects();
 		ModPotions.registerPotions();
+		ModPotions.registerPotionRecipes();
+
 		LOGGER.info("Mod initialized, new item added :)");
 	}
 
