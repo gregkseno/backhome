@@ -1,6 +1,7 @@
 package net.backhome.effect;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
@@ -37,24 +38,38 @@ public class TeleportEffect extends StatusEffect {
 
             if (serverWorld.getRegistryKey() !=  World.OVERWORLD)
                 serverWorld = serverWorld.getServer().getWorld(World.OVERWORLD);
-                
-            try {
-                // Get spawn postition
-                BlockPos spawn_position = serverPlayerEntity.getSpawnPointPosition();
+            
+            // Teleportation
+            int res = teleprot(serverPlayerEntity, serverWorld);
 
-                // Calculate nearest suitable block to teleport
-                Vec3d suitable_pos = PlayerEntity.findRespawnPosition(serverWorld, spawn_position, serverPlayerEntity.getSpawnAngle(), false, false).get();
-                
-                // Teleport and play sound of Enderman
-                serverPlayerEntity.teleport(serverWorld, suitable_pos.getX(), suitable_pos.getY(), suitable_pos.getZ(), serverPlayerEntity.getYaw(), 1.0F);
-                serverWorld.playSound(null, spawn_position, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                
-            } catch (NoSuchElementException e) { // There is no spawn point
+            // There is no spawn point
+            if (res == 0){
                 // TODO: Add random teleport
                 // Calculate current position and plays there fail sound
                 BlockPos current_pos = new BlockPos((int) serverPlayerEntity.getX(), (int) serverPlayerEntity.getY(), (int) serverPlayerEntity.getZ());
                 serverWorld.playSound(null, current_pos, SoundEvents.BLOCK_DISPENSER_FAIL, SoundCategory.PLAYERS, 1.0F, 1.0F);
-            }            
+            }
         }   
     }
+
+    // Returns 1 if teleport was successful, else 0
+    private int teleprot(ServerPlayerEntity serverPlayerEntity, ServerWorld serverWorld) {
+            // Get spawn postition
+            BlockPos spawn_position = serverPlayerEntity.getSpawnPointPosition();
+            if (spawn_position == null)
+                return 0;
+
+            // Calculate nearest suitable block to teleport
+            Optional<Vec3d> opt_suitable_pos = PlayerEntity.findRespawnPosition(serverWorld, spawn_position, serverPlayerEntity.getSpawnAngle(), false, false);
+            if (!opt_suitable_pos.isPresent()) 
+                return 0;
+
+            // Convert Optional<Vec3d> to Vec3d
+            Vec3d suitable_pos = opt_suitable_pos.get();
+
+            // Teleport and play sound of Enderman
+            serverPlayerEntity.teleport(serverWorld, suitable_pos.getX(), suitable_pos.getY(), suitable_pos.getZ(), serverPlayerEntity.getYaw(), 1.0F);
+            serverWorld.playSound(null, spawn_position, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
+            return 1;
+        }
 }
