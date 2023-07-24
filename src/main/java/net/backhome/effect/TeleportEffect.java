@@ -1,6 +1,5 @@
 package net.backhome.effect;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import net.minecraft.entity.LivingEntity;
