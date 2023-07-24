@@ -2,7 +2,6 @@ package net.backhome.potion;
 
 import net.backhome.BackHomeMod;
 import net.backhome.effect.ModEffects;
-import net.backhome.mixin.BrewingRecipeRegistryMixin;
 import net.minecraft.entity.effect.StatusEffectInstance;
 
 import net.minecraft.item.Items;
